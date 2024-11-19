@@ -17,7 +17,7 @@ interface ValidationErrorProps {
 }
 
 const ValidationError: FC<ValidationErrorProps> = ({ children }) => (
-  <p className="text-red-600" role="alert">
+  <p className="text-red-600 max-w-56" role="alert">
     {children}
   </p>
 )
@@ -89,7 +89,13 @@ export function EditEmployee() {
             <input
               id="dateStarted"
               type="text"
-              {...register('dateStarted', { required: 'start date is required' })}
+              {...register('dateStarted', {
+                required: 'start date is required',
+                pattern: {
+                  value: /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?Z$/,
+                  message: 'date must be in ISO format (e.g. 2024-03-14T12:00:00Z)',
+                },
+              })}
               className={textInputClasses}
               aria-invalid={errors.dateStarted ? 'true' : 'false'}
             />

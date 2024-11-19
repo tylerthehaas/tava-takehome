@@ -27,8 +27,11 @@ export const updateEmployeeById = async (employee: Employee): Promise<Employee> 
     },
     body: JSON.stringify(omit(employee, ['id', 'avatarUrl', 'status'])),
   })
+
   if (!response.ok) {
-    throw new Error('Failed to update employee')
+    const errorData = await response.json()
+    throw new Error(errorData?.message || `Failed to update employee (Status: ${response.status})`)
   }
+
   return response.json()
 }
