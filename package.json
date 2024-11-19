@@ -42,7 +42,7 @@
   },
   "scripts": {
     "client": "vite",
-    "server": "ts-node src/server/index.ts",
+    "server": "ts-node --project src/server/tsconfig.json src/server/index.ts",
     "start:dev": "concurrently \"pnpm run server\" \"pnpm run client\"",
     "build": "vite build",
     "preview": "vite preview",
