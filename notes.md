@@ -10,6 +10,7 @@
 6. Would use react-i18next to translate all text
 7. Add tests for all the endpoints using supertest and nock if necessary (but mocking responses wouldn't be necessary for this project).
 8. Add frontend tests with react-testing-library and mock service worker.
+9. Would add more analytics tracking for user actions on the frontend for observability.
 
 > I used AI to do the boilerplate code for the project and the routes. But I moved all the code around to make it more readable and maintainable and follow the architecture I think is best for this project.
 
