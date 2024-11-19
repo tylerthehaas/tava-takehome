@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { QueryClient, QueryClientProvider, QueryErrorResetBoundary } from '@tanstack/react-query'
 import Payroll from './components/Payroll'
 import EmployeeList from './components/EmployeeList'
@@ -32,6 +32,7 @@ export default function App() {
               >
                 <Suspense fallback={<Loading />}>
                   <Routes>
+                    <Route path="/" element={<Navigate to="/payroll" replace />} />
                     <Route path="/payroll" element={<Payroll />} />
                     <Route path="/employees" element={<EmployeeList />} />
                     <Route path="/employees/:id" element={<EditEmployee />} />
