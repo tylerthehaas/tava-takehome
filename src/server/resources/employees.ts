@@ -30,6 +30,7 @@ export function updateOne(id: number, employeeData: UpdateEmployee) {
     return null
   }
 
-  data[index] = { ...data[index], ...employeeData }
-  return data[index]
+  const updatedEmployee = { ...data[index], ...employeeData }
+  data[index] = updatedEmployee
+  return updatedEmployee
 }
